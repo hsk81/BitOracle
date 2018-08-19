@@ -1,7 +1,7 @@
 /* eslint-env browser, node */
 /* global web3 */
 
-class App {
+export class App {
     constructor(opts) {
         if (typeof web3 !== 'undefined') {
             this.web3Provider = web3.currentProvider;

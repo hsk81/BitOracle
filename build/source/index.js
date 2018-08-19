@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -7,7 +11,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /* eslint-env browser, node */
 /* global web3 */
 
-var App = function App(opts) {
+var App = exports.App = function App(opts) {
     _classCallCheck(this, App);
 
     if (typeof web3 !== 'undefined') {

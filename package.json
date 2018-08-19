@@ -7,11 +7,11 @@
     "test": "test"
   },
   "scripts": {
-    "lint": "node ./cli/run-lint.js",
     "build": "node ./cli/run-build.js",
-    "ganache-cli": "npx ganache-cli",
-    "migrate": "npx truffle migrate",
-    "test": "npx truffle test"
+    "ganache": "node ./cli/run-ganache.js",
+    "lint": "node ./cli/run-lint.js",
+    "migrate": "node ./cli/run-migrate.js",
+    "test": "node ./cli/run-test.js"
   },
   "repository": {
     "type": "git",
