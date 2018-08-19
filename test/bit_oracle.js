@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+/* global artifacts, assert, contract */
 const BitOracle = artifacts.require("BitOracle");
 
 contract('BitOracle', () => {
