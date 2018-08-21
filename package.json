@@ -8,9 +8,12 @@
   },
   "scripts": {
     "build": "node ./cli/run-build.js",
+    "clean": "node ./cli/run-clean.js",
+    "compile": "node ./cli/run-compile.js",
     "ganache": "node ./cli/run-ganache.js",
     "lint": "node ./cli/run-lint.js",
     "migrate": "node ./cli/run-migrate.js",
+    "server": "node ./cli/run-server.js",
     "test": "node ./cli/run-test.js"
   },
   "repository": {
@@ -36,19 +39,25 @@
   },
   "homepage": "https://github.com/hsk81/BitOracle#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-minify": "^0.4.3",
     "babel-preset-env": "^1.7.0",
+    "babelify": "^8.0.0",
+    "browserify": "^16.2.2",
     "chai": "^4.1.2",
     "coveralls": "^3.0.2",
     "eslint": "^5.3.0",
     "ganache-cli": "^6.1.8",
+    "html-minifier": "^3.5.18",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "nyc": "^12.0.2",
+    "rimraf": "^2.6.2",
     "truffle": "^4.1.14",
     "yargs": "^12.0.1"
   },
   "dependencies": {
+    "lite-server": "^2.4.0",
     "web3": "^1.0.0-beta.35"
   }
 }
