@@ -12,8 +12,7 @@ export class App {
     connect(url) {
         if (typeof web3 !== 'undefined') {
             this.web3Provider = web3.currentProvider;
-        }
-        else {
+        } else {
             this.web3Provider = new Web3(url);
         }
     }
