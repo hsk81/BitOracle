@@ -13,7 +13,7 @@
     "ganache": "node ./cli/run-ganache.js",
     "lint": "node ./cli/run-lint.js",
     "migrate": "node ./cli/run-migrate.js",
-    "server": "node ./cli/run-server.js",
+    "start": "node ./cli/run-server.js",
     "test": "node ./cli/run-test.js"
   },
   "repository": {
@@ -57,7 +57,9 @@
     "yargs": "^12.0.1"
   },
   "dependencies": {
+    "jquery": "^3.3.1",
     "lite-server": "^2.4.0",
+    "truffle-contract": "^3.0.6",
     "web3": "^1.0.0-beta.35"
   }
 }
