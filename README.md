@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/hsk81/BitOracle.svg?branch=master)](https://travis-ci.org/hsk81/BitOracle)
+[![Coverage Status](https://coveralls.io/repos/github/hsk81/BitOracle/badge.svg?branch=master)](https://coveralls.io/github/hsk81/BitOracle?branch=master)
+
 # A simple Bit Oracle on Ethereum
 A Solidity contract realizing a simple bit oracle: A user can click either a `get`, `set` or `clear` bit button to get or set the oracle's state from or on the blockchain. That's it.
 
