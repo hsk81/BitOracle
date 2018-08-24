@@ -3,9 +3,9 @@ node_js :
  - stable
 install:
  - npm install
- - npm install forever
 script:
- - npx forever ./cli/run-ganache-cli.js
+ - ganache-cli > /dev/null &
+ - sleep 5
  - npm run migrate
  - npm run test
 
