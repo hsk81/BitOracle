@@ -2,7 +2,7 @@ const { arg, npm, npx } = require('./run-utils');
 const { exit } = require('process');
 
 const browserify = (source, target) => npx('browserify',
-    source, '-o', target, arg('debug', '--debug')(true), '-t', '[',
+    source, '-o', target, arg('debug', '--debug')(false), '-t', '[',
         'babelify', '--presets', '[', '"env"', '"minify"', ']',
     ']'
 );
