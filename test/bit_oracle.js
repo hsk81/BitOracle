@@ -40,16 +40,16 @@ contract('BitOracle', () => {
             assert.equal(bit, true);
         });
     });
-    it("should set a bit with an event", () => {
+    it("should clear a bit emitting an event", () => {
         return BitOracle.deployed().then(bit_oracle => {
             bit_oracle.Bit((error, result) => {
                 assert(error === null);
                 assert(result);
                 assert(result.args);
-                assert(result.args._from);
-                assert(result.args._value);
+                assert(result.args.from);
+                assert(result.args.bit === false);
             });
-            return bit_oracle.setBit(true);
+            return bit_oracle.setBit(false);
         }).then(result => {
             assert(result);
             assert(result.tx);
