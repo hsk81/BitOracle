@@ -1,17 +1,13 @@
 pragma solidity ^0.4.23;
 
+import "./BitLibrary.sol";
+
 contract BitOracle {
     address public owner;
-    bool public bit;
-
-    event Bit(
-        address indexed _from,
-        bool indexed _value
-    );
+    BitLibrary.Data private data;
 
     constructor() public {
         owner = msg.sender;
-        bit = false;
     }
 
     modifier restricted() {
@@ -20,11 +16,16 @@ contract BitOracle {
 
     function setBit(bool _bit) public restricted returns (bool) {
         emit Bit(msg.sender, _bit);
-        bit = _bit;
-        return bit;
+        BitLibrary.set(data, _bit);
+        return _bit;
     }
 
     function getBit() public view returns (bool) {
-        return bit;
+        return BitLibrary.get(data);
     }
+
+    event Bit(
+        address indexed from,
+        bool indexed bit
+    );
 }

@@ -16,20 +16,6 @@
       "type": "function"
     },
     {
-      "constant": true,
-      "inputs": [],
-      "name": "bit",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
@@ -40,12 +26,12 @@
       "inputs": [
         {
           "indexed": true,
-          "name": "_from",
+          "name": "from",
           "type": "address"
         },
         {
           "indexed": true,
-          "name": "_value",
+          "name": "bit",
           "type": "bool"
         }
       ],
@@ -86,24 +72,24 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060146101000a81548160ff0219169083151502179055506102ac8061007a6000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806346e3eaa1146100675780638da5cb5b146100965780639e407998146100ed578063b1ca5fe61461011c575b600080fd5b34801561007357600080fd5b5061007c610163565b604051808215151515815260200191505060405180910390f35b3480156100a257600080fd5b506100ab610179565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100f957600080fd5b5061010261019e565b604051808215151515815260200191505060405180910390f35b34801561012857600080fd5b506101496004803603810190808035151590602001909291905050506101b1565b604051808215151515815260200191505060405180910390f35b60008060149054906101000a900460ff16905090565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600060149054906101000a900460ff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141561027b578115153373ffffffffffffffffffffffffffffffffffffffff167f58ea9bced50c75bb300f6a8165976b45178945731171ca2f53f5817a177eec3d60405160405180910390a381600060146101000a81548160ff021916908315150217905550600060149054906101000a900460ff1690505b9190505600a165627a7a7230582083754d602f111d85b47031a074da60d937acc00b53082a7b8cb0f9154735d1540029",
-  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806346e3eaa1146100675780638da5cb5b146100965780639e407998146100ed578063b1ca5fe61461011c575b600080fd5b34801561007357600080fd5b5061007c610163565b604051808215151515815260200191505060405180910390f35b3480156100a257600080fd5b506100ab610179565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100f957600080fd5b5061010261019e565b604051808215151515815260200191505060405180910390f35b34801561012857600080fd5b506101496004803603810190808035151590602001909291905050506101b1565b604051808215151515815260200191505060405180910390f35b60008060149054906101000a900460ff16905090565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600060149054906101000a900460ff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141561027b578115153373ffffffffffffffffffffffffffffffffffffffff167f58ea9bced50c75bb300f6a8165976b45178945731171ca2f53f5817a177eec3d60405160405180910390a381600060146101000a81548160ff021916908315150217905550600060149054906101000a900460ff1690505b9190505600a165627a7a7230582083754d602f111d85b47031a074da60d937acc00b53082a7b8cb0f9154735d1540029",
-  "sourceMap": "28:559:0:-;;;192:80;8:9:-1;5:2;;;30:1;27;20:12;5:2;192:80:0;232:10;224:5;;:18;;;;;;;;;;;;;;;;;;259:5;253:3;;:11;;;;;;;;;;;;;;;;;;28:559;;;;;;",
-  "deployedSourceMap": "28:559:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;510:74;;8:9:-1;5:2;;;30:1;27;20:12;5:2;510:74:0;;;;;;;;;;;;;;;;;;;;;;;;;;;54:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;54:20:0;;;;;;;;;;;;;;;;;;;;;;;;;;;81:15;;8:9:-1;5:2;;;30:1;27;20:12;5:2;81:15:0;;;;;;;;;;;;;;;;;;;;;;;;;;;355:147;;8:9:-1;5:2;;;30:1;27;20:12;5:2;355:147:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;510:74;549:4;573:3;;;;;;;;;;;566:10;;510:74;:::o;54:20::-;;;;;;;;;;;;;:::o;81:15::-;;;;;;;;;;;;;:::o;355:147::-;409:4;331:5;;;;;;;;;;;317:19;;:10;:19;;;313:26;;;447:4;431:21;;435:10;431:21;;;;;;;;;;;;469:4;463:3;;:10;;;;;;;;;;;;;;;;;;491:3;;;;;;;;;;;484:10;;313:26;355:147;;;:::o",
-  "source": "pragma solidity ^0.4.23;\r\n\r\ncontract BitOracle {\r\n    address public owner;\r\n    bool public bit;\r\n\r\n    event Bit(\r\n        address indexed _from,\r\n        bool indexed _value\r\n    );\r\n\r\n    constructor() public {\r\n        owner = msg.sender;\r\n        bit = false;\r\n    }\r\n\r\n    modifier restricted() {\r\n        if (msg.sender == owner) _;\r\n    }\r\n\r\n    function setBit(bool _bit) public restricted returns (bool) {\r\n        emit Bit(msg.sender, _bit);\r\n        bit = _bit;\r\n        return bit;\r\n    }\r\n\r\n    function getBit() public view returns (bool) {\r\n        return bit;\r\n    }\r\n}\r\n",
+  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555061035e806100606000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806346e3eaa11461005c5780638da5cb5b1461008b578063b1ca5fe6146100e2575b600080fd5b34801561006857600080fd5b50610071610129565b604051808215151515815260200191505060405180910390f35b34801561009757600080fd5b506100a06101d7565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100ee57600080fd5b5061010f6004803603810190808035151590602001909291905050506101fc565b604051808215151515815260200191505060405180910390f35b600073__BitLibrary____________________________63b52673c460016040518263ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018082815260200191505060206040518083038186803b15801561019757600080fd5b505af41580156101ab573d6000803e3d6000fd5b505050506040513d60208110156101c157600080fd5b8101908080519060200190929190505050905090565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141561032d578115153373ffffffffffffffffffffffffffffffffffffffff167f58ea9bced50c75bb300f6a8165976b45178945731171ca2f53f5817a177eec3d60405160405180910390a373__BitLibrary____________________________637b6e210b6001846040518363ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180838152602001821515151581526020019250505060006040518083038186803b15801561031157600080fd5b505af4158015610325573d6000803e3d6000fd5b505050508190505b9190505600a165627a7a7230582074cd5946125d1a2ce4ba0321396ba2d3f1de8175b584ec9619c95b069f17aa010029",
+  "deployedBytecode": "0x608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806346e3eaa11461005c5780638da5cb5b1461008b578063b1ca5fe6146100e2575b600080fd5b34801561006857600080fd5b50610071610129565b604051808215151515815260200191505060405180910390f35b34801561009757600080fd5b506100a06101d7565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100ee57600080fd5b5061010f6004803603810190808035151590602001909291905050506101fc565b604051808215151515815260200191505060405180910390f35b600073__BitLibrary____________________________63b52673c460016040518263ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018082815260200191505060206040518083038186803b15801561019757600080fd5b505af41580156101ab573d6000803e3d6000fd5b505050506040513d60208110156101c157600080fd5b8101908080519060200190929190505050905090565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141561032d578115153373ffffffffffffffffffffffffffffffffffffffff167f58ea9bced50c75bb300f6a8165976b45178945731171ca2f53f5817a177eec3d60405160405180910390a373__BitLibrary____________________________637b6e210b6001846040518363ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180838152602001821515151581526020019250505060006040518083038186803b15801561031157600080fd5b505af4158015610325573d6000803e3d6000fd5b505050508190505b9190505600a165627a7a7230582074cd5946125d1a2ce4ba0321396ba2d3f1de8175b584ec9619c95b069f17aa010029",
+  "sourceMap": "58:580:1:-;;;148:58;8:9:-1;5:2;;;30:1;27;20:12;5:2;148:58:1;188:10;180:5;;:18;;;;;;;;;;;;;;;;;;58:580;;;;;;",
+  "deployedSourceMap": "58:580:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;461:91;;8:9:-1;5:2;;;30:1;27;20:12;5:2;461:91:1;;;;;;;;;;;;;;;;;;;;;;;;;;;84:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;84:20:1;;;;;;;;;;;;;;;;;;;;;;;;;;;289:164;;8:9:-1;5:2;;;30:1;27;20:12;5:2;289:164:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;461:91;500:4;524:10;:14;539:4;524:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;524:20:1;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;524:20:1;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;524:20:1;;;;;;;;;;;;;;;;517:27;;461:91;:::o;84:20::-;;;;;;;;;;;;;:::o;289:164::-;343:4;265:5;;;;;;;;;;;251:19;;:10;:19;;;247:26;;;381:4;365:21;;369:10;365:21;;;;;;;;;;;;397:10;:14;412:4;418;397:26;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;397:26:1;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;397:26:1;;;;441:4;434:11;;247:26;289:164;;;:::o",
+  "source": "pragma solidity ^0.4.23;\r\n\r\nimport \"./BitLibrary.sol\";\r\n\r\ncontract BitOracle {\r\n    address public owner;\r\n    BitLibrary.Data private data;\r\n\r\n    constructor() public {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    modifier restricted() {\r\n        if (msg.sender == owner) _;\r\n    }\r\n\r\n    function setBit(bool _bit) public restricted returns (bool) {\r\n        emit Bit(msg.sender, _bit);\r\n        BitLibrary.set(data, _bit);\r\n        return _bit;\r\n    }\r\n\r\n    function getBit() public view returns (bool) {\r\n        return BitLibrary.get(data);\r\n    }\r\n\r\n    event Bit(\r\n        address indexed from,\r\n        bool indexed bit\r\n    );\r\n}\r\n",
   "sourcePath": "C:\\Users\\Hasan\\Desktop\\bit-oracle.git\\contracts\\BitOracle.sol",
   "ast": {
     "absolutePath": "/C/Users/Hasan/Desktop/bit-oracle.git/contracts/BitOracle.sol",
     "exportedSymbols": {
       "BitOracle": [
-        64
+        98
       ]
     },
-    "id": 65,
+    "id": 99,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1,
+        "id": 32,
         "literals": [
           "solidity",
           "^",
@@ -111,7 +97,18 @@
           ".23"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:0"
+        "src": "0:24:1"
+      },
+      {
+        "absolutePath": "/C/Users/Hasan/Desktop/bit-oracle.git/contracts/BitLibrary.sol",
+        "file": "./BitLibrary.sol",
+        "id": 33,
+        "nodeType": "ImportDirective",
+        "scope": 99,
+        "sourceUnit": 31,
+        "src": "28:26:1",
+        "symbolAliases": [],
+        "unitAlias": ""
       },
       {
         "baseContracts": [],
@@ -119,20 +116,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 64,
+        "id": 98,
         "linearizedBaseContracts": [
-          64
+          98
         ],
         "name": "BitOracle",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 3,
+            "id": 35,
             "name": "owner",
             "nodeType": "VariableDeclaration",
-            "scope": 64,
-            "src": "54:20:0",
+            "scope": 98,
+            "src": "84:20:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -140,10 +137,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 2,
+              "id": 34,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "54:7:0",
+              "src": "84:7:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -154,121 +151,54 @@
           },
           {
             "constant": false,
-            "id": 5,
-            "name": "bit",
+            "id": 37,
+            "name": "data",
             "nodeType": "VariableDeclaration",
-            "scope": 64,
-            "src": "81:15:0",
+            "scope": 98,
+            "src": "111:28:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_bool",
-              "typeString": "bool"
+              "typeIdentifier": "t_struct$_Data_$4_storage",
+              "typeString": "struct BitLibrary.Data"
             },
             "typeName": {
-              "id": 4,
-              "name": "bool",
-              "nodeType": "ElementaryTypeName",
-              "src": "81:4:0",
+              "contractScope": null,
+              "id": 36,
+              "name": "BitLibrary.Data",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 4,
+              "src": "111:15:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_bool",
-                "typeString": "bool"
+                "typeIdentifier": "t_struct$_Data_$4_storage_ptr",
+                "typeString": "struct BitLibrary.Data"
               }
             },
             "value": null,
-            "visibility": "public"
-          },
-          {
-            "anonymous": false,
-            "documentation": null,
-            "id": 11,
-            "name": "Bit",
-            "nodeType": "EventDefinition",
-            "parameters": {
-              "id": 10,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 7,
-                  "indexed": true,
-                  "name": "_from",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 11,
-                  "src": "125:21:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 6,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "125:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 9,
-                  "indexed": true,
-                  "name": "_value",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 11,
-                  "src": "157:19:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bool",
-                    "typeString": "bool"
-                  },
-                  "typeName": {
-                    "id": 8,
-                    "name": "bool",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "157:4:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "114:69:0"
-            },
-            "src": "105:79:0"
+            "visibility": "private"
           },
           {
             "body": {
-              "id": 23,
+              "id": 45,
               "nodeType": "Block",
-              "src": "213:59:0",
+              "src": "169:37:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 17,
+                    "id": 43,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 14,
+                      "id": 40,
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3,
-                      "src": "224:5:0",
+                      "referencedDeclaration": 35,
+                      "src": "180:5:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -280,18 +210,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 15,
+                        "id": 41,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 136,
-                        "src": "232:3:0",
+                        "referencedDeclaration": 170,
+                        "src": "188:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 16,
+                      "id": 42,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -299,77 +229,26 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "232:10:0",
+                      "src": "188:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "224:18:0",
+                    "src": "180:18:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 18,
+                  "id": 44,
                   "nodeType": "ExpressionStatement",
-                  "src": "224:18:0"
-                },
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "id": 21,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "leftHandSide": {
-                      "argumentTypes": null,
-                      "id": 19,
-                      "name": "bit",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 5,
-                      "src": "253:3:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_bool",
-                        "typeString": "bool"
-                      }
-                    },
-                    "nodeType": "Assignment",
-                    "operator": "=",
-                    "rightHandSide": {
-                      "argumentTypes": null,
-                      "hexValue": "66616c7365",
-                      "id": 20,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "kind": "bool",
-                      "lValueRequested": false,
-                      "nodeType": "Literal",
-                      "src": "259:5:0",
-                      "subdenomination": null,
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_bool",
-                        "typeString": "bool"
-                      },
-                      "value": "false"
-                    },
-                    "src": "253:11:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
-                    }
-                  },
-                  "id": 22,
-                  "nodeType": "ExpressionStatement",
-                  "src": "253:11:0"
+                  "src": "180:18:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 24,
+            "id": 46,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -377,29 +256,29 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 12,
+              "id": 38,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "203:2:0"
+              "src": "159:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 13,
+              "id": 39,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "213:0:0"
+              "src": "169:0:1"
             },
-            "scope": 64,
-            "src": "192:80:0",
+            "scope": 98,
+            "src": "148:58:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 32,
+              "id": 54,
               "nodeType": "Block",
-              "src": "302:45:0",
+              "src": "236:45:1",
               "statements": [
                 {
                   "condition": {
@@ -408,7 +287,7 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 29,
+                    "id": 51,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -417,18 +296,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 26,
+                        "id": 48,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 136,
-                        "src": "317:3:0",
+                        "referencedDeclaration": 170,
+                        "src": "251:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 27,
+                      "id": 49,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -436,7 +315,7 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "317:10:0",
+                      "src": "251:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -446,53 +325,53 @@
                     "operator": "==",
                     "rightExpression": {
                       "argumentTypes": null,
-                      "id": 28,
+                      "id": 50,
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3,
-                      "src": "331:5:0",
+                      "referencedDeclaration": 35,
+                      "src": "265:5:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "317:19:0",
+                    "src": "251:19:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
                   "falseBody": null,
-                  "id": 31,
+                  "id": 53,
                   "nodeType": "IfStatement",
-                  "src": "313:26:0",
+                  "src": "247:26:1",
                   "trueBody": {
-                    "id": 30,
+                    "id": 52,
                     "nodeType": "PlaceholderStatement",
-                    "src": "338:1:0"
+                    "src": "272:1:1"
                   }
                 }
               ]
             },
             "documentation": null,
-            "id": 33,
+            "id": 55,
             "name": "restricted",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 25,
+              "id": 47,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "299:2:0"
+              "src": "233:2:1"
             },
-            "src": "280:67:0",
+            "src": "214:67:1",
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 54,
+              "id": 79,
               "nodeType": "Block",
-              "src": "415:87:0",
+              "src": "349:104:1",
               "statements": [
                 {
                   "eventCall": {
@@ -502,18 +381,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 43,
+                          "id": 65,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 136,
-                          "src": "435:3:0",
+                          "referencedDeclaration": 170,
+                          "src": "369:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 44,
+                        "id": 66,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -521,7 +400,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "435:10:0",
+                        "src": "369:10:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -529,12 +408,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 45,
+                        "id": 67,
                         "name": "_bit",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 35,
-                        "src": "447:4:0",
+                        "referencedDeclaration": 57,
+                        "src": "381:4:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -552,18 +431,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 42,
+                      "id": 64,
                       "name": "Bit",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11,
-                      "src": "431:3:0",
+                      "referencedDeclaration": 97,
+                      "src": "365:3:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_bool_$returns$__$",
                         "typeString": "function (address,bool)"
                       }
                     },
-                    "id": 46,
+                    "id": 68,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -571,122 +450,163 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "431:21:0",
+                    "src": "365:21:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 47,
+                  "id": 69,
                   "nodeType": "EmitStatement",
-                  "src": "426:26:0"
+                  "src": "360:26:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 50,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 73,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 37,
+                        "src": "412:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Data_$4_storage",
+                          "typeString": "struct BitLibrary.Data storage ref"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 74,
+                        "name": "_bit",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 57,
+                        "src": "418:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Data_$4_storage",
+                          "typeString": "struct BitLibrary.Data storage ref"
+                        },
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 70,
+                        "name": "BitLibrary",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 30,
+                        "src": "397:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_BitLibrary_$30_$",
+                          "typeString": "type(library BitLibrary)"
+                        }
+                      },
+                      "id": 72,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "set",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 18,
+                      "src": "397:14:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_Data_$4_storage_ptr_$_t_bool_$returns$__$",
+                        "typeString": "function (struct BitLibrary.Data storage pointer,bool)"
+                      }
+                    },
+                    "id": 75,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
+                    "kind": "functionCall",
                     "lValueRequested": false,
-                    "leftHandSide": {
-                      "argumentTypes": null,
-                      "id": 48,
-                      "name": "bit",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 5,
-                      "src": "463:3:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_bool",
-                        "typeString": "bool"
-                      }
-                    },
-                    "nodeType": "Assignment",
-                    "operator": "=",
-                    "rightHandSide": {
-                      "argumentTypes": null,
-                      "id": 49,
-                      "name": "_bit",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 35,
-                      "src": "469:4:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_bool",
-                        "typeString": "bool"
-                      }
-                    },
-                    "src": "463:10:0",
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "397:26:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
                     }
                   },
-                  "id": 51,
+                  "id": 76,
                   "nodeType": "ExpressionStatement",
-                  "src": "463:10:0"
+                  "src": "397:26:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 52,
-                    "name": "bit",
+                    "id": 77,
+                    "name": "_bit",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 5,
-                    "src": "491:3:0",
+                    "referencedDeclaration": 57,
+                    "src": "441:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 41,
-                  "id": 53,
+                  "functionReturnParameters": 63,
+                  "id": 78,
                   "nodeType": "Return",
-                  "src": "484:10:0"
+                  "src": "434:11:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 55,
+            "id": 80,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": null,
-                "id": 38,
+                "id": 60,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 37,
+                  "id": 59,
                   "name": "restricted",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 33,
-                  "src": "389:10:0",
+                  "referencedDeclaration": 55,
+                  "src": "323:10:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "389:10:0"
+                "src": "323:10:1"
               }
             ],
             "name": "setBit",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 36,
+              "id": 58,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 35,
+                  "id": 57,
                   "name": "_bit",
                   "nodeType": "VariableDeclaration",
-                  "scope": 55,
-                  "src": "371:9:0",
+                  "scope": 80,
+                  "src": "305:9:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -694,10 +614,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 34,
+                    "id": 56,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "371:4:0",
+                    "src": "305:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -707,20 +627,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "370:11:0"
+              "src": "304:11:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 41,
+              "id": 63,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 40,
+                  "id": 62,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 55,
-                  "src": "409:4:0",
+                  "scope": 80,
+                  "src": "343:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -728,10 +648,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 39,
+                    "id": 61,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "409:4:0",
+                    "src": "343:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -741,43 +661,95 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "408:6:0"
+              "src": "342:6:1"
             },
-            "scope": 64,
-            "src": "355:147:0",
+            "scope": 98,
+            "src": "289:164:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 62,
+              "id": 90,
               "nodeType": "Block",
-              "src": "555:29:0",
+              "src": "506:46:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 60,
-                    "name": "bit",
-                    "nodeType": "Identifier",
-                    "overloadedDeclarations": [],
-                    "referencedDeclaration": 5,
-                    "src": "573:3:0",
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 87,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 37,
+                        "src": "539:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Data_$4_storage",
+                          "typeString": "struct BitLibrary.Data storage ref"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Data_$4_storage",
+                          "typeString": "struct BitLibrary.Data storage ref"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 85,
+                        "name": "BitLibrary",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 30,
+                        "src": "524:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_BitLibrary_$30_$",
+                          "typeString": "type(library BitLibrary)"
+                        }
+                      },
+                      "id": 86,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "get",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 29,
+                      "src": "524:14:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_Data_$4_storage_ptr_$returns$_t_bool_$",
+                        "typeString": "function (struct BitLibrary.Data storage pointer) view returns (bool)"
+                      }
+                    },
+                    "id": 88,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "524:20:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 59,
-                  "id": 61,
+                  "functionReturnParameters": 84,
+                  "id": 89,
                   "nodeType": "Return",
-                  "src": "566:10:0"
+                  "src": "517:27:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 63,
+            "id": 91,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -785,23 +757,23 @@
             "name": "getBit",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 56,
+              "id": 81,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "525:2:0"
+              "src": "476:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 59,
+              "id": 84,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 58,
+                  "id": 83,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 63,
-                  "src": "549:4:0",
+                  "scope": 91,
+                  "src": "500:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -809,10 +781,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 57,
+                    "id": 82,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "549:4:0",
+                    "src": "500:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -822,33 +794,102 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "548:6:0"
+              "src": "499:6:1"
             },
-            "scope": 64,
-            "src": "510:74:0",
+            "scope": 98,
+            "src": "461:91:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 97,
+            "name": "Bit",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 96,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 93,
+                  "indexed": true,
+                  "name": "from",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 97,
+                  "src": "580:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 92,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "580:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 95,
+                  "indexed": true,
+                  "name": "bit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 97,
+                  "src": "611:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 94,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "611:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "569:65:1"
+            },
+            "src": "560:75:1"
           }
         ],
-        "scope": 65,
-        "src": "28:559:0"
+        "scope": 99,
+        "src": "58:580:1"
       }
     ],
-    "src": "0:589:0"
+    "src": "0:640:1"
   },
   "legacyAST": {
     "absolutePath": "/C/Users/Hasan/Desktop/bit-oracle.git/contracts/BitOracle.sol",
     "exportedSymbols": {
       "BitOracle": [
-        64
+        98
       ]
     },
-    "id": 65,
+    "id": 99,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1,
+        "id": 32,
         "literals": [
           "solidity",
           "^",
@@ -856,7 +897,18 @@
           ".23"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:0"
+        "src": "0:24:1"
+      },
+      {
+        "absolutePath": "/C/Users/Hasan/Desktop/bit-oracle.git/contracts/BitLibrary.sol",
+        "file": "./BitLibrary.sol",
+        "id": 33,
+        "nodeType": "ImportDirective",
+        "scope": 99,
+        "sourceUnit": 31,
+        "src": "28:26:1",
+        "symbolAliases": [],
+        "unitAlias": ""
       },
       {
         "baseContracts": [],
@@ -864,20 +916,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 64,
+        "id": 98,
         "linearizedBaseContracts": [
-          64
+          98
         ],
         "name": "BitOracle",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 3,
+            "id": 35,
             "name": "owner",
             "nodeType": "VariableDeclaration",
-            "scope": 64,
-            "src": "54:20:0",
+            "scope": 98,
+            "src": "84:20:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -885,10 +937,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 2,
+              "id": 34,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "54:7:0",
+              "src": "84:7:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -899,121 +951,54 @@
           },
           {
             "constant": false,
-            "id": 5,
-            "name": "bit",
+            "id": 37,
+            "name": "data",
             "nodeType": "VariableDeclaration",
-            "scope": 64,
-            "src": "81:15:0",
+            "scope": 98,
+            "src": "111:28:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_bool",
-              "typeString": "bool"
+              "typeIdentifier": "t_struct$_Data_$4_storage",
+              "typeString": "struct BitLibrary.Data"
             },
             "typeName": {
-              "id": 4,
-              "name": "bool",
-              "nodeType": "ElementaryTypeName",
-              "src": "81:4:0",
+              "contractScope": null,
+              "id": 36,
+              "name": "BitLibrary.Data",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 4,
+              "src": "111:15:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_bool",
-                "typeString": "bool"
+                "typeIdentifier": "t_struct$_Data_$4_storage_ptr",
+                "typeString": "struct BitLibrary.Data"
               }
             },
             "value": null,
-            "visibility": "public"
-          },
-          {
-            "anonymous": false,
-            "documentation": null,
-            "id": 11,
-            "name": "Bit",
-            "nodeType": "EventDefinition",
-            "parameters": {
-              "id": 10,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 7,
-                  "indexed": true,
-                  "name": "_from",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 11,
-                  "src": "125:21:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 6,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "125:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 9,
-                  "indexed": true,
-                  "name": "_value",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 11,
-                  "src": "157:19:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bool",
-                    "typeString": "bool"
-                  },
-                  "typeName": {
-                    "id": 8,
-                    "name": "bool",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "157:4:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "114:69:0"
-            },
-            "src": "105:79:0"
+            "visibility": "private"
           },
           {
             "body": {
-              "id": 23,
+              "id": 45,
               "nodeType": "Block",
-              "src": "213:59:0",
+              "src": "169:37:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 17,
+                    "id": 43,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 14,
+                      "id": 40,
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3,
-                      "src": "224:5:0",
+                      "referencedDeclaration": 35,
+                      "src": "180:5:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1025,18 +1010,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 15,
+                        "id": 41,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 136,
-                        "src": "232:3:0",
+                        "referencedDeclaration": 170,
+                        "src": "188:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 16,
+                      "id": 42,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1044,77 +1029,26 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "232:10:0",
+                      "src": "188:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "224:18:0",
+                    "src": "180:18:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 18,
+                  "id": 44,
                   "nodeType": "ExpressionStatement",
-                  "src": "224:18:0"
-                },
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "id": 21,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "leftHandSide": {
-                      "argumentTypes": null,
-                      "id": 19,
-                      "name": "bit",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 5,
-                      "src": "253:3:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_bool",
-                        "typeString": "bool"
-                      }
-                    },
-                    "nodeType": "Assignment",
-                    "operator": "=",
-                    "rightHandSide": {
-                      "argumentTypes": null,
-                      "hexValue": "66616c7365",
-                      "id": 20,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "kind": "bool",
-                      "lValueRequested": false,
-                      "nodeType": "Literal",
-                      "src": "259:5:0",
-                      "subdenomination": null,
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_bool",
-                        "typeString": "bool"
-                      },
-                      "value": "false"
-                    },
-                    "src": "253:11:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
-                    }
-                  },
-                  "id": 22,
-                  "nodeType": "ExpressionStatement",
-                  "src": "253:11:0"
+                  "src": "180:18:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 24,
+            "id": 46,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -1122,29 +1056,29 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 12,
+              "id": 38,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "203:2:0"
+              "src": "159:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 13,
+              "id": 39,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "213:0:0"
+              "src": "169:0:1"
             },
-            "scope": 64,
-            "src": "192:80:0",
+            "scope": 98,
+            "src": "148:58:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 32,
+              "id": 54,
               "nodeType": "Block",
-              "src": "302:45:0",
+              "src": "236:45:1",
               "statements": [
                 {
                   "condition": {
@@ -1153,7 +1087,7 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 29,
+                    "id": 51,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1162,18 +1096,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 26,
+                        "id": 48,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 136,
-                        "src": "317:3:0",
+                        "referencedDeclaration": 170,
+                        "src": "251:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 27,
+                      "id": 49,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1181,7 +1115,7 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "317:10:0",
+                      "src": "251:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1191,53 +1125,53 @@
                     "operator": "==",
                     "rightExpression": {
                       "argumentTypes": null,
-                      "id": 28,
+                      "id": 50,
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3,
-                      "src": "331:5:0",
+                      "referencedDeclaration": 35,
+                      "src": "265:5:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "317:19:0",
+                    "src": "251:19:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
                   "falseBody": null,
-                  "id": 31,
+                  "id": 53,
                   "nodeType": "IfStatement",
-                  "src": "313:26:0",
+                  "src": "247:26:1",
                   "trueBody": {
-                    "id": 30,
+                    "id": 52,
                     "nodeType": "PlaceholderStatement",
-                    "src": "338:1:0"
+                    "src": "272:1:1"
                   }
                 }
               ]
             },
             "documentation": null,
-            "id": 33,
+            "id": 55,
             "name": "restricted",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 25,
+              "id": 47,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "299:2:0"
+              "src": "233:2:1"
             },
-            "src": "280:67:0",
+            "src": "214:67:1",
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 54,
+              "id": 79,
               "nodeType": "Block",
-              "src": "415:87:0",
+              "src": "349:104:1",
               "statements": [
                 {
                   "eventCall": {
@@ -1247,18 +1181,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 43,
+                          "id": 65,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 136,
-                          "src": "435:3:0",
+                          "referencedDeclaration": 170,
+                          "src": "369:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 44,
+                        "id": 66,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1266,7 +1200,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "435:10:0",
+                        "src": "369:10:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1274,12 +1208,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 45,
+                        "id": 67,
                         "name": "_bit",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 35,
-                        "src": "447:4:0",
+                        "referencedDeclaration": 57,
+                        "src": "381:4:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1297,18 +1231,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 42,
+                      "id": 64,
                       "name": "Bit",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11,
-                      "src": "431:3:0",
+                      "referencedDeclaration": 97,
+                      "src": "365:3:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_bool_$returns$__$",
                         "typeString": "function (address,bool)"
                       }
                     },
-                    "id": 46,
+                    "id": 68,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1316,122 +1250,163 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "431:21:0",
+                    "src": "365:21:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 47,
+                  "id": 69,
                   "nodeType": "EmitStatement",
-                  "src": "426:26:0"
+                  "src": "360:26:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 50,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 73,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 37,
+                        "src": "412:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Data_$4_storage",
+                          "typeString": "struct BitLibrary.Data storage ref"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 74,
+                        "name": "_bit",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 57,
+                        "src": "418:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Data_$4_storage",
+                          "typeString": "struct BitLibrary.Data storage ref"
+                        },
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 70,
+                        "name": "BitLibrary",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 30,
+                        "src": "397:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_BitLibrary_$30_$",
+                          "typeString": "type(library BitLibrary)"
+                        }
+                      },
+                      "id": 72,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "set",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 18,
+                      "src": "397:14:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_delegatecall_nonpayable$_t_struct$_Data_$4_storage_ptr_$_t_bool_$returns$__$",
+                        "typeString": "function (struct BitLibrary.Data storage pointer,bool)"
+                      }
+                    },
+                    "id": 75,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
+                    "kind": "functionCall",
                     "lValueRequested": false,
-                    "leftHandSide": {
-                      "argumentTypes": null,
-                      "id": 48,
-                      "name": "bit",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 5,
-                      "src": "463:3:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_bool",
-                        "typeString": "bool"
-                      }
-                    },
-                    "nodeType": "Assignment",
-                    "operator": "=",
-                    "rightHandSide": {
-                      "argumentTypes": null,
-                      "id": 49,
-                      "name": "_bit",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 35,
-                      "src": "469:4:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_bool",
-                        "typeString": "bool"
-                      }
-                    },
-                    "src": "463:10:0",
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "397:26:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
                     }
                   },
-                  "id": 51,
+                  "id": 76,
                   "nodeType": "ExpressionStatement",
-                  "src": "463:10:0"
+                  "src": "397:26:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 52,
-                    "name": "bit",
+                    "id": 77,
+                    "name": "_bit",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 5,
-                    "src": "491:3:0",
+                    "referencedDeclaration": 57,
+                    "src": "441:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 41,
-                  "id": 53,
+                  "functionReturnParameters": 63,
+                  "id": 78,
                   "nodeType": "Return",
-                  "src": "484:10:0"
+                  "src": "434:11:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 55,
+            "id": 80,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": null,
-                "id": 38,
+                "id": 60,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 37,
+                  "id": 59,
                   "name": "restricted",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 33,
-                  "src": "389:10:0",
+                  "referencedDeclaration": 55,
+                  "src": "323:10:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "389:10:0"
+                "src": "323:10:1"
               }
             ],
             "name": "setBit",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 36,
+              "id": 58,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 35,
+                  "id": 57,
                   "name": "_bit",
                   "nodeType": "VariableDeclaration",
-                  "scope": 55,
-                  "src": "371:9:0",
+                  "scope": 80,
+                  "src": "305:9:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1439,10 +1414,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 34,
+                    "id": 56,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "371:4:0",
+                    "src": "305:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1452,20 +1427,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "370:11:0"
+              "src": "304:11:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 41,
+              "id": 63,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 40,
+                  "id": 62,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 55,
-                  "src": "409:4:0",
+                  "scope": 80,
+                  "src": "343:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1473,10 +1448,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 39,
+                    "id": 61,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "409:4:0",
+                    "src": "343:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1486,43 +1461,95 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "408:6:0"
+              "src": "342:6:1"
             },
-            "scope": 64,
-            "src": "355:147:0",
+            "scope": 98,
+            "src": "289:164:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 62,
+              "id": 90,
               "nodeType": "Block",
-              "src": "555:29:0",
+              "src": "506:46:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 60,
-                    "name": "bit",
-                    "nodeType": "Identifier",
-                    "overloadedDeclarations": [],
-                    "referencedDeclaration": 5,
-                    "src": "573:3:0",
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 87,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 37,
+                        "src": "539:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Data_$4_storage",
+                          "typeString": "struct BitLibrary.Data storage ref"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Data_$4_storage",
+                          "typeString": "struct BitLibrary.Data storage ref"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 85,
+                        "name": "BitLibrary",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 30,
+                        "src": "524:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_BitLibrary_$30_$",
+                          "typeString": "type(library BitLibrary)"
+                        }
+                      },
+                      "id": 86,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "get",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 29,
+                      "src": "524:14:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_delegatecall_view$_t_struct$_Data_$4_storage_ptr_$returns$_t_bool_$",
+                        "typeString": "function (struct BitLibrary.Data storage pointer) view returns (bool)"
+                      }
+                    },
+                    "id": 88,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "524:20:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 59,
-                  "id": 61,
+                  "functionReturnParameters": 84,
+                  "id": 89,
                   "nodeType": "Return",
-                  "src": "566:10:0"
+                  "src": "517:27:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 63,
+            "id": 91,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1530,23 +1557,23 @@
             "name": "getBit",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 56,
+              "id": 81,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "525:2:0"
+              "src": "476:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 59,
+              "id": 84,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 58,
+                  "id": 83,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 63,
-                  "src": "549:4:0",
+                  "scope": 91,
+                  "src": "500:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1554,10 +1581,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 57,
+                    "id": 82,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "549:4:0",
+                    "src": "500:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1567,33 +1594,104 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "548:6:0"
+              "src": "499:6:1"
             },
-            "scope": 64,
-            "src": "510:74:0",
+            "scope": 98,
+            "src": "461:91:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 97,
+            "name": "Bit",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 96,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 93,
+                  "indexed": true,
+                  "name": "from",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 97,
+                  "src": "580:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 92,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "580:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 95,
+                  "indexed": true,
+                  "name": "bit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 97,
+                  "src": "611:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 94,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "611:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "569:65:1"
+            },
+            "src": "560:75:1"
           }
         ],
-        "scope": 65,
-        "src": "28:559:0"
+        "scope": 99,
+        "src": "58:580:1"
       }
     ],
-    "src": "0:589:0"
+    "src": "0:640:1"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {
-    "1535107444868": {
+    "1535110644488": {
       "events": {},
-      "links": {},
-      "address": "0x2297ff6bd04806f3069d7984f679ae3ace2fd746",
-      "transactionHash": "0x563dbac11a1d6a89fc0a8d3b5c7b3fc466514169f3c94491517ef21b8762a327"
+      "links": {
+        "BitLibrary": "0xc0f9df27615a822720029bbcab676b8a3f446c40"
+      },
+      "address": "0x60f710b7c3995c46f5080173562b36ac3560a8ed",
+      "transactionHash": "0xdac86bff6e85c8dde8f6bdf489ee65c549f5dfe1a773225cc266267a1c6fd573"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-24T10:45:45.362Z"
+  "updatedAt": "2018-08-24T11:38:33.382Z"
 }
