@@ -10,7 +10,7 @@
     "build": "node ./cli/run-build.js",
     "clean": "node ./cli/run-clean.js",
     "compile": "node ./cli/run-compile.js",
-    "ganache": "node ./cli/run-ganache.js",
+    "ganache-cli": "node ./cli/run-ganache-cli.js",
     "lint": "node ./cli/run-lint.js",
     "migrate": "node ./cli/run-migrate.js",
     "start": "node ./cli/run-server.js",

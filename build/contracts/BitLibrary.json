@@ -39,11 +39,11 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x610140610030600b82828239805160001a6073146000811461002057610022565bfe5b5030600052607381538281f3007300000000000000000000000000000000000000003014608060405260043610610063576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637b6e210b14610068578063b52673c4146100a1575b600080fd5b81801561007457600080fd5b5061009f600480360381019080803590602001909291908035151590602001909291905050506100d9565b005b6100bf600480360381019080803590602001909291905050506100f9565b604051808215151515815260200191505060405180910390f35b808260000160006101000a81548160ff0219169083151502179055505050565b60008160000160009054906101000a900460ff1690509190505600a165627a7a72305820dd09ea35f28ff3d55da5ed97f93ef0cc96fbdc0d7903be510a4fff7964fafcbf0029",
-  "deployedBytecode": "0x7300000000000000000000000000000000000000003014608060405260043610610063576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637b6e210b14610068578063b52673c4146100a1575b600080fd5b81801561007457600080fd5b5061009f600480360381019080803590602001909291908035151590602001909291905050506100d9565b005b6100bf600480360381019080803590602001909291905050506100f9565b604051808215151515815260200191505060405180910390f35b808260000160006101000a81548160ff0219169083151502179055505050565b60008160000160009054906101000a900460ff1690509190505600a165627a7a72305820dd09ea35f28ff3d55da5ed97f93ef0cc96fbdc0d7903be510a4fff7964fafcbf0029",
-  "sourceMap": "28:260:0:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
-  "deployedSourceMap": "28:260:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;101:84;;8:9:-1;5:2;;;30:1;27;20:12;5:2;101:84:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;193:92;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;101:84;173:4;162;:8;;;:15;;;;;;;;;;;;;;;;;;101:84;;:::o;193:92::-;245:4;269;:8;;;;;;;;;;;;262:15;;193:92;;;:::o",
-  "source": "pragma solidity ^0.4.23;\r\n\r\nlibrary BitLibrary {\r\n    struct Data {\r\n        bool bit;\r\n    }\r\n\r\n    function set(Data storage self, bool _bit) public {\r\n        self.bit = _bit;\r\n    }\r\n\r\n    function get(Data storage self) public view returns(bool) {\r\n        return self.bit;\r\n    }\r\n}\r\n",
+  "bytecode": "0x610140610030600b82828239805160001a6073146000811461002057610022565bfe5b5030600052607381538281f3007300000000000000000000000000000000000000003014608060405260043610610063576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637b6e210b14610068578063b52673c4146100a1575b600080fd5b81801561007457600080fd5b5061009f600480360381019080803590602001909291908035151590602001909291905050506100d9565b005b6100bf600480360381019080803590602001909291905050506100f9565b604051808215151515815260200191505060405180910390f35b808260000160006101000a81548160ff0219169083151502179055505050565b60008160000160009054906101000a900460ff1690509190505600a165627a7a72305820906f22b28f636cd84e666ca3d6c353992008f567dff233c870b8b1878edaad7a0029",
+  "deployedBytecode": "0x7300000000000000000000000000000000000000003014608060405260043610610063576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637b6e210b14610068578063b52673c4146100a1575b600080fd5b81801561007457600080fd5b5061009f600480360381019080803590602001909291908035151590602001909291905050506100d9565b005b6100bf600480360381019080803590602001909291905050506100f9565b604051808215151515815260200191505060405180910390f35b808260000160006101000a81548160ff0219169083151502179055505050565b60008160000160009054906101000a900460ff1690509190505600a165627a7a72305820906f22b28f636cd84e666ca3d6c353992008f567dff233c870b8b1878edaad7a0029",
+  "sourceMap": "56:479:0:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
+  "deployedSourceMap": "56:479:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;306:84;;8:9:-1;5:2;;;30:1;27;20:12;5:2;306:84:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;440:92;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;306:84;378:4;367;:8;;;:15;;;;;;;;;;;;;;;;;;306:84;;:::o;440:92::-;492:4;516;:8;;;;;;;;;;;;509:15;;440:92;;;:::o",
+  "source": "pragma solidity ^0.4.23;\r\n\r\n/** @title Bit Library. */\r\nlibrary BitLibrary {\r\n    /** @dev Data Structure. */\r\n    struct Data {\r\n        /** @dev Bit boolean. */\r\n        bool bit;\r\n    }\r\n\r\n    /** @dev Sets library storage bit to provided value.\r\n      * @param _bit Bit value to set to.\r\n      */\r\n    function set(Data storage self, bool _bit) public {\r\n        self.bit = _bit;\r\n    }\r\n\r\n    /** @dev Gets library storage bit.*/\r\n    function get(Data storage self) public view returns(bool) {\r\n        return self.bit;\r\n    }\r\n}\r\n",
   "sourcePath": "C:\\Users\\Hasan\\Desktop\\bit-oracle.git\\contracts\\BitLibrary.sol",
   "ast": {
     "absolutePath": "/C/Users/Hasan/Desktop/bit-oracle.git/contracts/BitLibrary.sol",
@@ -70,7 +70,7 @@
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "library",
-        "documentation": null,
+        "documentation": "@title Bit Library. ",
         "fullyImplemented": true,
         "id": 30,
         "linearizedBaseContracts": [
@@ -89,7 +89,7 @@
                 "name": "bit",
                 "nodeType": "VariableDeclaration",
                 "scope": 4,
-                "src": "77:8:0",
+                "src": "172:8:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -100,7 +100,7 @@
                   "id": 2,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "77:4:0",
+                  "src": "172:4:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -113,14 +113,14 @@
             "name": "Data",
             "nodeType": "StructDefinition",
             "scope": 30,
-            "src": "54:39:0",
+            "src": "115:73:0",
             "visibility": "public"
           },
           {
             "body": {
               "id": 17,
               "nodeType": "Block",
-              "src": "151:34:0",
+              "src": "356:34:0",
               "statements": [
                 {
                   "expression": {
@@ -139,7 +139,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 6,
-                        "src": "162:4:0",
+                        "src": "367:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Data_$4_storage_ptr",
                           "typeString": "struct BitLibrary.Data storage pointer"
@@ -153,7 +153,7 @@
                       "memberName": "bit",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 3,
-                      "src": "162:8:0",
+                      "src": "367:8:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -168,13 +168,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 8,
-                      "src": "173:4:0",
+                      "src": "378:4:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       }
                     },
-                    "src": "162:15:0",
+                    "src": "367:15:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -182,11 +182,11 @@
                   },
                   "id": 16,
                   "nodeType": "ExpressionStatement",
-                  "src": "162:15:0"
+                  "src": "367:15:0"
                 }
               ]
             },
-            "documentation": null,
+            "documentation": "@dev Sets library storage bit to provided value.\r\n@param _bit Bit value to set to.\r",
             "id": 18,
             "implemented": true,
             "isConstructor": false,
@@ -204,7 +204,7 @@
                   "name": "self",
                   "nodeType": "VariableDeclaration",
                   "scope": 18,
-                  "src": "114:17:0",
+                  "src": "319:17:0",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
@@ -217,7 +217,7 @@
                     "name": "Data",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 4,
-                    "src": "114:4:0",
+                    "src": "319:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_Data_$4_storage_ptr",
                       "typeString": "struct BitLibrary.Data"
@@ -232,7 +232,7 @@
                   "name": "_bit",
                   "nodeType": "VariableDeclaration",
                   "scope": 18,
-                  "src": "133:9:0",
+                  "src": "338:9:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -243,7 +243,7 @@
                     "id": 7,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "133:4:0",
+                    "src": "338:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -253,17 +253,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "113:30:0"
+              "src": "318:30:0"
             },
             "payable": false,
             "returnParameters": {
               "id": 10,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "151:0:0"
+              "src": "356:0:0"
             },
             "scope": 30,
-            "src": "101:84:0",
+            "src": "306:84:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -272,7 +272,7 @@
             "body": {
               "id": 28,
               "nodeType": "Block",
-              "src": "251:34:0",
+              "src": "498:34:0",
               "statements": [
                 {
                   "expression": {
@@ -284,7 +284,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 20,
-                      "src": "269:4:0",
+                      "src": "516:4:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_struct$_Data_$4_storage_ptr",
                         "typeString": "struct BitLibrary.Data storage pointer"
@@ -298,7 +298,7 @@
                     "memberName": "bit",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": 3,
-                    "src": "269:8:0",
+                    "src": "516:8:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -307,11 +307,11 @@
                   "functionReturnParameters": 24,
                   "id": 27,
                   "nodeType": "Return",
-                  "src": "262:15:0"
+                  "src": "509:15:0"
                 }
               ]
             },
-            "documentation": null,
+            "documentation": "@dev Gets library storage bit.",
             "id": 29,
             "implemented": true,
             "isConstructor": false,
@@ -329,7 +329,7 @@
                   "name": "self",
                   "nodeType": "VariableDeclaration",
                   "scope": 29,
-                  "src": "206:17:0",
+                  "src": "453:17:0",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
@@ -342,7 +342,7 @@
                     "name": "Data",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 4,
-                    "src": "206:4:0",
+                    "src": "453:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_Data_$4_storage_ptr",
                       "typeString": "struct BitLibrary.Data"
@@ -352,7 +352,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "205:19:0"
+              "src": "452:19:0"
             },
             "payable": false,
             "returnParameters": {
@@ -365,7 +365,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 29,
-                  "src": "245:4:0",
+                  "src": "492:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -376,7 +376,7 @@
                     "id": 22,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "245:4:0",
+                    "src": "492:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -386,20 +386,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "244:6:0"
+              "src": "491:6:0"
             },
             "scope": 30,
-            "src": "193:92:0",
+            "src": "440:92:0",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 31,
-        "src": "28:260:0"
+        "src": "56:479:0"
       }
     ],
-    "src": "0:290:0"
+    "src": "0:537:0"
   },
   "legacyAST": {
     "absolutePath": "/C/Users/Hasan/Desktop/bit-oracle.git/contracts/BitLibrary.sol",
@@ -426,7 +426,7 @@
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "library",
-        "documentation": null,
+        "documentation": "@title Bit Library. ",
         "fullyImplemented": true,
         "id": 30,
         "linearizedBaseContracts": [
@@ -445,7 +445,7 @@
                 "name": "bit",
                 "nodeType": "VariableDeclaration",
                 "scope": 4,
-                "src": "77:8:0",
+                "src": "172:8:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -456,7 +456,7 @@
                   "id": 2,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "77:4:0",
+                  "src": "172:4:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -469,14 +469,14 @@
             "name": "Data",
             "nodeType": "StructDefinition",
             "scope": 30,
-            "src": "54:39:0",
+            "src": "115:73:0",
             "visibility": "public"
           },
           {
             "body": {
               "id": 17,
               "nodeType": "Block",
-              "src": "151:34:0",
+              "src": "356:34:0",
               "statements": [
                 {
                   "expression": {
@@ -495,7 +495,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 6,
-                        "src": "162:4:0",
+                        "src": "367:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Data_$4_storage_ptr",
                           "typeString": "struct BitLibrary.Data storage pointer"
@@ -509,7 +509,7 @@
                       "memberName": "bit",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 3,
-                      "src": "162:8:0",
+                      "src": "367:8:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -524,13 +524,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 8,
-                      "src": "173:4:0",
+                      "src": "378:4:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       }
                     },
-                    "src": "162:15:0",
+                    "src": "367:15:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -538,11 +538,11 @@
                   },
                   "id": 16,
                   "nodeType": "ExpressionStatement",
-                  "src": "162:15:0"
+                  "src": "367:15:0"
                 }
               ]
             },
-            "documentation": null,
+            "documentation": "@dev Sets library storage bit to provided value.\r\n@param _bit Bit value to set to.\r",
             "id": 18,
             "implemented": true,
             "isConstructor": false,
@@ -560,7 +560,7 @@
                   "name": "self",
                   "nodeType": "VariableDeclaration",
                   "scope": 18,
-                  "src": "114:17:0",
+                  "src": "319:17:0",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
@@ -573,7 +573,7 @@
                     "name": "Data",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 4,
-                    "src": "114:4:0",
+                    "src": "319:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_Data_$4_storage_ptr",
                       "typeString": "struct BitLibrary.Data"
@@ -588,7 +588,7 @@
                   "name": "_bit",
                   "nodeType": "VariableDeclaration",
                   "scope": 18,
-                  "src": "133:9:0",
+                  "src": "338:9:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -599,7 +599,7 @@
                     "id": 7,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "133:4:0",
+                    "src": "338:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -609,17 +609,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "113:30:0"
+              "src": "318:30:0"
             },
             "payable": false,
             "returnParameters": {
               "id": 10,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "151:0:0"
+              "src": "356:0:0"
             },
             "scope": 30,
-            "src": "101:84:0",
+            "src": "306:84:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -628,7 +628,7 @@
             "body": {
               "id": 28,
               "nodeType": "Block",
-              "src": "251:34:0",
+              "src": "498:34:0",
               "statements": [
                 {
                   "expression": {
@@ -640,7 +640,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 20,
-                      "src": "269:4:0",
+                      "src": "516:4:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_struct$_Data_$4_storage_ptr",
                         "typeString": "struct BitLibrary.Data storage pointer"
@@ -654,7 +654,7 @@
                     "memberName": "bit",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": 3,
-                    "src": "269:8:0",
+                    "src": "516:8:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -663,11 +663,11 @@
                   "functionReturnParameters": 24,
                   "id": 27,
                   "nodeType": "Return",
-                  "src": "262:15:0"
+                  "src": "509:15:0"
                 }
               ]
             },
-            "documentation": null,
+            "documentation": "@dev Gets library storage bit.",
             "id": 29,
             "implemented": true,
             "isConstructor": false,
@@ -685,7 +685,7 @@
                   "name": "self",
                   "nodeType": "VariableDeclaration",
                   "scope": 29,
-                  "src": "206:17:0",
+                  "src": "453:17:0",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
@@ -698,7 +698,7 @@
                     "name": "Data",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 4,
-                    "src": "206:4:0",
+                    "src": "453:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_Data_$4_storage_ptr",
                       "typeString": "struct BitLibrary.Data"
@@ -708,7 +708,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "205:19:0"
+              "src": "452:19:0"
             },
             "payable": false,
             "returnParameters": {
@@ -721,7 +721,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 29,
-                  "src": "245:4:0",
+                  "src": "492:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -732,7 +732,7 @@
                     "id": 22,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "245:4:0",
+                    "src": "492:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -742,33 +742,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "244:6:0"
+              "src": "491:6:0"
             },
             "scope": 30,
-            "src": "193:92:0",
+            "src": "440:92:0",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 31,
-        "src": "28:260:0"
+        "src": "56:479:0"
       }
     ],
-    "src": "0:290:0"
+    "src": "0:537:0"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {
-    "1535111433688": {
+    "1535113568016": {
       "events": {},
       "links": {},
-      "address": "0xcee56e7fa94c7e6221181ce38e77be61a939ae81",
-      "transactionHash": "0x0a048377aac6f4177b8289b5e558c24eeacc063e3ff5868a201a60e299b64e18"
+      "address": "0xa46e61997800754b8f546c89a57738574a85d506",
+      "transactionHash": "0x0a888c9863bc607c0c0276af64fa28c14c7ecaadd50070071ce44d990e69782b"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-24T11:55:02.584Z"
+  "updatedAt": "2018-08-24T13:07:54.739Z"
 }
