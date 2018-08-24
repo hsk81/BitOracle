@@ -1,8 +1,8 @@
 /* eslint-env browser, node */
 /* eslint no-console: "off" */
 
+import BitOracleArtifact from '../build/contracts/BitOracle.json';
 import { default as TruffleContract } from 'truffle-contract'
-import BitOracleArtifact from './contracts/BitOracle.json';
 
 export class BitOracle {
     constructor (web3Provider) {

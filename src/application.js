@@ -2,8 +2,8 @@
 /* eslint no-console: "off" */
 /* global web3 */
 
-import { BitOracle } from './bit_oracle';
-import { default as Web3 } from 'web3';
+import { BitOracle } from './bit-oracle';
+import { default as Web3 } from './web3';
 import { default as $ } from 'jquery';
 
 export class Application {
