@@ -5,6 +5,7 @@ install:
  - npm install
 script:
  - npm run ganache-cli
+ - npm run migrate
  - npm run test
 
 after_script: "npx nyc report --reporter=text-lcov | npx coveralls"
