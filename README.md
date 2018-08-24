@@ -21,7 +21,7 @@ npm run -- build --debug
 ```
 ## Run Local Blockchain
 ```
-$ npm run ganache
+$ npm run ganache-cli
 ```
 ```
 Listening on 127.0.0.1:8545
